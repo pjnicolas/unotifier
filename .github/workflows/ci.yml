@@ -49,11 +49,11 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-      # - name: Deploy to server
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: unotifier.pjnicolas.es
-      #     username: ${{ secrets.SSH_AWS_USER }}
-      #     key: ${{ secrets.SSH_AWS_KEY }}
-      #     port: 22
-      #     script: cd /app/unotifier && ./deploy.sh
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: unotifier.pjnicolas.es
+          username: ${{ secrets.SSH_AWS_USER }}
+          key: ${{ secrets.SSH_AWS_KEY }}
+          port: 22
+          script: cd /app/unotifier && ./deploy.sh
