@@ -5,15 +5,16 @@ import prisma from './prisma'
 const bot = new Telegraf(BOT_TOKEN)
 const telegram = new Telegram(BOT_TOKEN)
 
+const RANDOM_ALPHABET = 'ABCDEFGHJKLMNPRSTXZ23456789'
+const TOKEN_HASH_SECTION_LENGTH = 6
+const TOKEN_HASH_SECTION_COUNT = 3
+
 const generateRandomChar = () => {
-  const RANDOM_ALPHABET = 'ABCDEFGHJKLMNPRSTXZ23456789'
   const randomPosition = Math.floor(Math.random() * RANDOM_ALPHABET.length)
   return RANDOM_ALPHABET[randomPosition]
 }
 
 const generateRandomCode = () => {
-  const TOKEN_HASH_SECTION_LENGTH = 4
-  const TOKEN_HASH_SECTION_COUNT = 3
   const hash = []
   for (let section = 0; section < TOKEN_HASH_SECTION_COUNT; section += 1) {
     hash[section] = [] as Array<string>
