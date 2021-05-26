@@ -52,7 +52,7 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          host: unotifier.pjnicolas.es
+          host: unotifier.pjnicolas.com
           username: ${{ secrets.SSH_AWS_USER }}
           key: ${{ secrets.SSH_AWS_KEY }}
           port: 22
