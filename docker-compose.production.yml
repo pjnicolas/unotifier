@@ -7,6 +7,8 @@ services:
       NODE_ENV: production
     depends_on:
       - db
+    volumes:
+      - ./.env:/app/.env
 
   db:
     image: postgres:13.0-alpine
